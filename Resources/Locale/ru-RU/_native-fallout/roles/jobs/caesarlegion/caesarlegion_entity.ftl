@@ -1,0 +1,16 @@
+ent-N14MobHumanCaesarLegionScout = Разведчик Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarLegionRecruit = Рекрут Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarLegionPrime = Воин Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarVeteran = Ветеран Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarInstructor = Инструктор Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarLegionDecan = Декан Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarLegionVenator = Венатор Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
+ent-N14MobHumanCaesarLegionCenturion = Центурион Легиона Цезаря
+    .desc = { ent-MobHuman.desc }
