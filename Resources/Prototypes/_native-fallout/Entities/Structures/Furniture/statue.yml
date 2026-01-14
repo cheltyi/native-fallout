@@ -5,7 +5,7 @@
   description: Legion obeying the Mars word
   components:
     - type: Sprite
-      sprite: _native-fallout/Structures/Furniture/statue.yml
+      sprite: _native-fallout/Structures/Furniture/Mars.rsi
       state: Statue
       drawdepth: Mobs
       noRot: true
