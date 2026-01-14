@@ -1,0 +1,22 @@
+- type: npcFaction
+  id: CaesarLegion
+  hostile:
+  - Wastelander
+  - BrotherhoodMidwest
+  - BrotherhoodWashington
+  - BrotherhoodMidwestSecureArea # turrets
+  - BrotherhoodWashingtonSecureArea # turrets
+  - CaravanCompany
+  - CaravanCompanySecureArea # turrets
+  - NCR
+  - NCRSecureArea # turrets
+  - Rangers
+  - Townsfolk
+  - Tribal
+  - Vault
+  - VaultSecureArea # turrets
+  - WastelandInsect
+  - WastelandAnimal
+  - Zetan
+  - Feral
+  - HostileRobot

@@ -1,0 +1,96 @@
+- type: entity
+  parent: SpawnPointJobBase
+  id: N14SpawnPointCaesarLegionCenturion
+  name: legion centurion
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionCenturion
+  - type: Sprite
+    sprite: _native-fallout/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: centurion
+
+- type: entity
+  id: N14SpawnPointCaesarLegionVenator
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion venator
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionVenator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: venator
+
+- type: entity
+  id: N14SpawnPointCaesarLegionDecan
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion decan
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionDecan
+  - type: Sprite
+    layers:
+      - state: green
+      - state: decan
+
+- type: entity
+  id: N14SpawnPointCaesarLegionInstructor
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion instructor
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionInstructor
+  - type: Sprite
+    layers:
+      - state: green
+      - state: veteran
+
+- type: entity
+  id: N14SpawnPointCaesarLegionVeteran
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion veteran
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionVeteran
+  - type: Sprite
+    layers:
+      - state: green
+      - state: veteran
+
+- type: entity
+  id: N14SpawnPointCaesarLegionPrime
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion prime
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionPrime
+  - type: Sprite
+    layers:
+      - state: green
+      - state: prime
+
+- type: entity
+  id: N14SpawnPointCaesarLegionScout
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion scout
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionScout
+  - type: Sprite
+    layers:
+      - state: green
+      - state: recruit
+
+- type: entity
+  id: N14SpawnPointCaesarLegionRecruit
+  parent: N14SpawnPointCaesarLegionCenturion
+  name: legion recruit
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionRecruit
+  - type: Sprite
+    layers:
+      - state: green
+      - state: recruit

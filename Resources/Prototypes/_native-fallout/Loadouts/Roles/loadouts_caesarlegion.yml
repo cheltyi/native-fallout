@@ -1,0 +1,83 @@
+- type: loadout
+  id: LoadoutCaesarLegionDecanusVeteranHelmet
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionDecan
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionDecan
+      min: 216000 # 60 hours
+  items:
+    - N14ClothingHeadHatCaesarLegionDecanusVeteranHelmet
+
+- type: loadout
+  id: LoadoutCaesarLegionDecanusPrimeHelmet
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionDecan
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionDecan
+      min: 72000 # 20 hours
+  items:
+    - N14ClothingHeadHatCaesarLegionDecanusPrimeHelmet
+
+- type: loadout
+  id: LoadoutCaesarLegionDecanusRecruitHelmet
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionDecan
+  items:
+    - N14ClothingHeadHatCaesarLegionDecanusRecruitHelmet
+
+- type: loadout
+  id: LoadoutCaesarLegionDecanusVeteranArmor
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionDecan
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionDecan
+      min: 216000 # 60 hours
+  items:
+    - N14ClothingOuterCaesarLegionVeteranArmor
+
+- type: loadout
+  id: LoadoutCaesarLegionDecanusPrimeArmor
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionDecan
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionDecan
+      min: 72000 # 20 hours
+  items:
+    - N14ClothingOuterCaesarLegionPrimeArmor
+
+- type: loadout
+  id: LoadoutCaesarLegionDecanusRecruitArmor
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionDecan
+  items:
+    - N14ClothingOuterCaesarLegionRecruitArmor

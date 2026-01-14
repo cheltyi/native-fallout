@@ -67,3 +67,287 @@
     sprite: _native-fallout/Clothing/OuterClothing/Armor/BoS_Mоjave/ReconArmor.rsi
   - type: ToggleableClothing
     clothingPrototype: N14ClothingHeadHatBrotherhoodMojaveHelmetRecon
+
+#MARK: Caesar Legion
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionSunLegatArmor
+  name: Legion sun legat armor
+  description: Armor assembled from captured pieces of power armor of defeated enemies.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/SunLegatArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/SunLegatArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.4
+        Heat: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaDamageResistance
+    coefficient: 0.6
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionPraetorianCenturionArmor
+  name: Legion praetorian centurion armor
+  description: Armor assembled from captured pieces of power armor of defeated enemies.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/SunPraetorianArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/SunPraetorianArmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.55
+        Heat: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: StaminaDamageResistance
+    coefficient: 0.6
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionTankCenturionArmor
+  name: Legion tank centurion armor
+  description: Armor assembled from captured pieces of power armor of defeated enemies.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/TankCenturionArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/TankCenturionArmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.55
+    sprintModifier: 0.55
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.2
+        Piercing: 0.3
+        Heat: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaDamageResistance
+    coefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionRangerCenturionArmor
+  name: Legion ranger centurion armor
+  description: Armor assembled from captured pieces of power armor of defeated enemies.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/RangerCenturionArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/RangerCenturionArmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaDamageResistance
+    coefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionCenturionArmor
+  name: Legion centurion armor
+  description: Armor assembled from captured pieces of power armor of defeated enemies.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/CenturionArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/CenturionArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.55
+        Heat: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaDamageResistance
+    coefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionVenatorArmor
+  name: Legion venator armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/VenatorArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/VenatorArmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.85
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionInstructorArmor
+  name: Legion instructor armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/InstructorArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/InstructorArmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.02
+    sprintModifier: 1.02
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.62
+        Slash: 0.62
+        Piercing: 0.68
+        Heat: 0.68
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionVeteranArmor
+  name: Legion veteran armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/VeteranArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/VeteranArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionVexillariusArmor
+  name: Legion vexillarius armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/VexillariusArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/VexillariusArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionPrimeArmor
+  name: Legion prime armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/PrimeArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/PrimeArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionRecruitArmor
+  name: Legion recruit armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/RecruitArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/RecruitArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.9
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterCaesarLegionScoutArmor
+  name: Legion explorer armor
+  description: "Legion armor, it is made from repurposed sports equipment"
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/ScoutArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Caesar_Legion/ScoutArmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.20
+    sprintModifier: 1.20
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+
+#MARK: Enclave
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: N14ClothingOuterEnclaveSecretServiceArmor
+  name: enclave combat armor
+  description: A suit of armor used by Enclave soldiers.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Enclave/EnclaveArmor.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/OuterClothing/Armor/Enclave/EnclaveArmor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes: 
+      head: N14ClothingHeadHatEnclaveSecretServiceHelmet

@@ -1,0 +1,12 @@
+- type: entity
+  id: N14StructureMarsStatue
+  parent: BaseStructure
+  name: Statue of Mars
+  description: Legion obeying the Mars word
+  components:
+    - type: Sprite
+      sprite: _native-fallout/Structures/Furniture/statue.yml
+      state: Statue
+      drawdepth: Mobs
+      noRot: true
+      offset: "0.0,0.5"

@@ -11,10 +11,106 @@
 
 - type: entity
   parent: N14DecorationFlagFlammable
-  id: N14DecorationFlagLegion
-  name: Legion flag
+  id: N14DecorationFlagCaesarLegion
+  name: Caesar Legion flag
   description: A red and yellow flag with a big bull.
   components:
   - type: Sprite
     sprite: _native-fallout/Structures/Decoration/flags.rsi
     state: legionflag
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagGangStupidDogs
+  name: Stupid dogs flag
+  description: A flag on pole.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags.rsi
+    state: stupiddogflag
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagGangShakal
+  name: Shakal flag
+  description: A flag on pole.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags.rsi
+    state: shakalflag
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagDeadEmpty
+  name: Dead Body
+  description: A... nothing.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags2.rsi
+    state: DeadEmpty
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagDead1
+  name: Dead Body
+  description: A corpse firmly attached to a flagpole 
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags2.rsi
+    state: Dead1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MaleScreams
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          N14DecorationFlagDeadEmpty:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: N14DecorationFlagDead1
+  id: N14DecorationFlagDead2
+  name: Dead Body
+  description: A corpse firmly attached to a flagpole 
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags2.rsi
+    state: Dead2
+
+- type: entity
+  parent: N14DecorationFlagDead1
+  id: N14DecorationFlagDead3
+  name: Dead Body
+  description: A corpse firmly attached to a flagpole 
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags2.rsi
+    state: Dead3
+
+- type: entity
+  parent: N14DecorationFlagDead1
+  id: N14DecorationFlagDead4
+  name: Dead Body
+  description: A corpse firmly attached to a flagpole 
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags2.rsi
+    state: Dead4
+
+- type: entity
+  parent: N14DecorationFlagDead1
+  id: N14DecorationFlagDead5
+  name: Dead Body
+  description: A corpse firmly attached to a flagpole 
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/flags2.rsi
+    state: Dead5

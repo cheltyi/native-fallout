@@ -1,0 +1,601 @@
+# Legion kits
+
+- type: entity
+  name: centurion-ranger kit
+  parent: KitBase
+  id: CaesarLegionKitCenturionRanger
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionRangerCenturionArmor
+      - id: N14ClothingHeadHatRangerCenturionHelmet
+      - id: N14CeremonialSword
+      - id: N14WeaponSMG12mmAdvanced
+      - id: MagazineBox12
+      - id: N14TopMagazineSMG12mm
+        amount: 3
+      - id: N14HydraCaesarLegion
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: centurion-tank kit
+  parent: KitBase
+  id: CaesarLegionKitCenturionTank
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionTankCenturionArmor
+      - id: N14ClothingHeadHatTankCenturionHelmet
+      - id: N14WeaponLMGchinese
+      - id: MagazineBox762
+        amount: 2
+      - id: Magazine762AmmoBelt
+        amount: 3
+      - id: N14HealingPoultice
+        amount: 5
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: centurion-standart kit
+  parent: KitBase
+  id: CaesarLegionKitCenturionStandart
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionCenturionArmor
+      - id: N14ClothingHeadHatCenturionHelmet
+      - id: N14WeaponThermospear
+      - id: N14HydraCaesarLegion
+        amount: 5
+      - id: N14HealingPoultice
+        amount: 3
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#Venator
+
+- type: entity
+  name: venator-sagitaria kit
+  parent: KitBase
+  id: CaesarLegionKitVenatorSagitaria
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionVenatorArmor
+      - id: N14WeaponSniper50AntiMateriel
+      - id: N14Magazine50AMR
+        amount: 3
+      - id: MagazineBox50
+      - id: ClothingEyesNightVisionGoggles
+      - id: N14HydraCaesarLegion
+        amount: 3
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: venator-marathon kit
+  parent: KitBase
+  id: CaesarLegionKitVenatorMarathon
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionVenatorArmor
+      - id: N14WeaponShotgunAuto
+      - id: MagazineBox12gauge
+      - id: N14MagazineShotgun12
+        amount: 4
+      - id: N14CeremonialSword
+      - id: ClothingEyesNightVisionGoggles
+      - id: N14HydraCaesarLegion
+        amount: 3
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#Decan
+
+- type: entity
+  name: decan-sagitaria kit
+  parent: KitBase
+  id: CaesarLegionKitDecanSagitaria
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponLMGAutoRifle
+      - id: Magazine308Rifle
+        amount: 2
+      - id: MagazineBox308
+      - id: N14HealingPoultice
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: decan-berserker kit
+  parent: KitBase
+  id: CaesarLegionKitDecanBerserker
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14CombatKnife
+      - id: N14WeaponShotgunSawedOff
+      - id: MagazineBox12gauge
+        amount: 2
+      - id: N14HydraCaesarLegion
+        amount: 4
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#Instructor
+
+- type: entity
+  name: instructor-firearm kit
+  parent: KitBase
+  id: CaesarLegionKitInstructorFirearm
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionInstructorArmor
+      - id: N14Gladius
+      - id: N14WeaponRifle762Marksman
+      - id: MagazineBox762
+      - id: Magazine762Rifle
+        amount: 2
+      - id: N14HydraCaesarLegion
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: instructor-fighter kit
+  parent: KitBase
+  id: CaesarLegionKitInstructorFighter
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionInstructorArmor
+      - id: N14Gladius
+      - id: N14ClothingHandsGlovesCaesarLegionPowerFist
+      - id: N14HydraCaesarLegion
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+
+#Veteran
+
+- type: entity
+  name: veteran-firearm kit
+  parent: KitBase
+  id: CaesarLegionKitVeteranFirearm
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionVeteranArmor
+      - id: N14Gladius
+      - id: SmokeGrenade
+      - id: N14WeaponSMG10mm
+      - id: MagazineBox10mm
+        amount: 2
+      - id: N14MagazineSMG10mm
+        amount: 3
+      - id: N14HydraCaesarLegion
+        amount: 2
+      - id: N14DoctorSyringe
+      - id: LargeBeaker
+      - id: N14FoodCazadorAcidSac
+        amount: 10
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: veteran-guard kit
+  parent: KitBase
+  id: CaesarLegionKitVeteranGuard
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionVeteranArmor
+      - id: N14Gladius
+      - id: N14WeaponRifle556Carbine
+      - id: MagazineBox556
+      - id: LongMagazine556Rifle
+        amount: 3
+      - id: N14HydraCaesarLegion
+      - id: N14HealingPoultice
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: veteran-gladiator kit
+  parent: KitBase
+  id: CaesarLegionKitVeteranGladiator
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionVeteranArmor
+      - id: N14Gladius
+      - id: Bola
+        amount: 2
+      - id: N14LegionnaireShield
+      - id: N14HydraCaesarLegion
+        amount: 3
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#Prime
+
+- type: entity
+  name: prime-dogtrainer kit
+  parent: KitBase
+  id: CaesarLegionKitPrimeDogTrainer
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionPrimeArmor
+      - id: N14Gladius
+      - id: N14WeaponSniperHunting
+      - id: MagazineBox308
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: prime-slave-owner kit
+  parent: KitBase
+  id: CaesarLegionKitPrimeSlaveOwner
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionPrimeArmor
+      - id: N14Gladius
+      - id: ShockCollar
+        amount: 3
+      - id: N14Whip
+      - id: N14WeaponRevolver44Magnun
+      - id: SpeedLoader44
+        amount: 2
+      - id: MagazineBox44
+      - id: Zipties
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: prime-vexillarius kit
+  parent: KitBase
+  id: CaesarLegionKitPrimeVexillarius
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionVexillariusArmor
+      - id: N14ClothingHeadHatCaesarLegionVexillariusHelmet
+      - id: N14ClothingNeckCaesarLegionVexiliaryFlag
+      - id: N14TribalMachete
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14WeaponSniper44LeverCarbine
+      - id: MagazineBox44
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: prime-firearm kit
+  parent: KitBase
+  id: CaesarLegionKitPrimeFirearm
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionPrimeArmor
+      - id: N14TribalMachete
+      - id: N14WeaponShotgunLever
+      - id: MagazineBox20gauge
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#Scout
+
+- type: entity
+  name: scout-wanderer kit
+  parent: KitBase
+  id: CaesarLegionKitScoutOldWanderer
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionScoutArmor
+      - id: N14WeaponSniperHunting
+      - id: MagazineBox308
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: scout-researcher kit
+  parent: KitBase
+  id: CaesarLegionKitScoutResearcher
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionScoutArmor
+      - id: N14CombatKnife
+      - id: N14HydraCaesarLegion
+        amount: 6
+      - id: N14HealingPoultice
+        amount: 4
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#Recruit
+
+- type: entity
+  name: recruit-base kit
+  parent: KitBase
+  id: CaesarLegionKitRecruitBase
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionRecruitArmor
+      - id: N14WeaponSMG9mm
+      - id: N14MagazineSMG9mm
+        amount: 2
+      - id: MagazineBox9mm
+      - id: N14TribalMachete
+      - id: N14HealingPoultice
+        amount: 1
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: recruit-spear kit
+  parent: KitBase
+  id: CaesarLegionKitRecruitSpear
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionRecruitArmor
+      - id: ClothingBeltQuiverSpear
+      - id: LargeBeaker
+      - id: N14FoodCazadorAcidSac
+        amount: 10
+      - id: N14PilumSpear
+        amount: 15
+      - id: N14CaesarLegionBuckler
+      - id: N14HealingPoultice
+        amount: 1
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: recruit-healer kit
+  parent: KitBase
+  id: CaesarLegionKitRecruitHealer
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterCaesarLegionRecruitArmor
+      - id: N14TribalMachete
+      - id: N14ClothingBeltMedicalFilled
+      - id: N14HealingPoultice
+        amount: 5
+      - id: Brutepack
+      - id: N14Ointment10
+      - id: N14FoodTinK
+        amount: 2
+      - id: DrinkWaterBottleFull
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg

@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatCaesarLegionScout
+  name: Explorer hood
+  description: One piece of cloth wrapped around the head.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Head/Hoods/Caesar_Legion/ScoutHelmet.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Head/Hoods/Caesar_Legion/ScoutHelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
