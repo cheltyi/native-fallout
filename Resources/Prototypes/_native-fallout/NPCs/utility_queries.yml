@@ -1,0 +1,19 @@
+﻿#kiriyaga 15/11/2025
+- type: utilityQuery
+  id: NearbyDoor
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: Door # DoorComponent isnt it?
+  considerations:
+  - !type:TargetIsAliveCon
+    curve: !type:InverseBoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:FoodValueCon
+    curve: !type:QuadraticCurve
+      slope: 1.0
+      exponent: 0.4
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
