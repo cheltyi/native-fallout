@@ -1,0 +1,16 @@
+ent-N14SpawnPointCaesarLegionCenturion = Центурион
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionVenator = Венатор
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionDecan = Декан
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionInstructor = Легионер-Инструктор
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionVeteran = Легионер-Ветеран
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionPrime = Легионер-Воин
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionScout = Легионер-Разведчик
+    .desc = { ent-N14SpawnPointWastelander.desc }
+ent-N14SpawnPointCaesarLegionRecruit = Легионер-Рекрут
+    .desc = { ent-N14SpawnPointWastelander.desc }
