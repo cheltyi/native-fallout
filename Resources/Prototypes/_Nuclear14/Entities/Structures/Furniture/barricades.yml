@@ -5,7 +5,7 @@
   description: A sandbag fortification.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    sprite: _native-fallout/Structures/Furniture/barricades.rsi
     netsync: false
     state: sandbag_single
   - type: Damageable
