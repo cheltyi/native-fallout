@@ -11,7 +11,7 @@
 
 - type: entity
   parent: N14DecorationFlagFlammable
-  id: N14DecorationFlagCaesarLegion
+  id: N14DecorationFlagLegion
   name: Caesar Legion flag
   description: A red and yellow flag with a big bull.
   components:

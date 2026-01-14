@@ -5,13 +5,13 @@ undecided-loadout-category-centurion-ranger-description =
     Ящик со всем необходимым для главенства над центурией.
     Включает: рейнджерская центурионская броня, шлем центуриона-рейнджера с ПНВ, ППП, три магазина на него, коробка, две гидры
 
-undecided-loadout-category-centurion-tankname = Набор центуриона-танка
-undecided-loadout-category-centurion-tankdescription =
+undecided-loadout-category-centurion-tank-name = Набор центуриона-танка
+undecided-loadout-category-centurion-tank-description =
     Ящик со всем необходимым для главенства над центурией.
     Включает: тяжелая центурионская броня, тяжелый центурионский шлем, тяжелый пулемет 7,62, три ленты, две коробки, 5 припарок
 
-undecided-loadout-category-centurion-standartname = Набор центуриона
-undecided-loadout-category-centurion-standartdescription =
+undecided-loadout-category-centurion-standart-name = Набор центуриона
+undecided-loadout-category-centurion-standart-description =
     Ящик со всем необходимым для главенства над центурией.
     Включает: центурионская броня, центурионский шлем, термокопье, 5 гидры, 3 припарки.
 
