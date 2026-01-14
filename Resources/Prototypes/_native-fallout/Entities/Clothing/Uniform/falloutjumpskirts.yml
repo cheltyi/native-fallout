@@ -1,0 +1,32 @@
+- type: entity
+  parent: N14ClothingUniformSkirtBase
+  id: N14ClothingUniformJumpskirtCaesarLegion
+  name: legion tunic
+  description: Fairly primitive clothing for caesar legion warriors.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Uniforms/FalloutSkirts/Caesar_Legion/LegioTunic.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Uniforms/FalloutSkirts/Caesar_Legion/LegioTunic.rsi
+
+- type: entity
+  parent: N14ClothingUniformSkirtBase
+  id: N14ClothingUniformJumpskirtCaesarLegionSlaveFemale
+  name: female slave rags
+  description: For forced people into servitude
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Uniforms/FalloutSkirts/Caesar_Legion/LegioSlaveF.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Uniforms/FalloutSkirts/Caesar_Legion/LegioSlaveF.rsi
+
+- type: entity
+  parent: N14ClothingUniformSkirtBase
+  id: N14ClothingUniformJumpskirtCaesarLegionSlaveMale
+  name: male slave rags
+  description: For forced people into servitude
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Uniforms/FalloutSkirts/Caesar_Legion/LegioSlaveM.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Uniforms/FalloutSkirts/Caesar_Legion/LegioSlaveM.rsi

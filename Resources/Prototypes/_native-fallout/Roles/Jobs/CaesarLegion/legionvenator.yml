@@ -1,0 +1,45 @@
+- type: job
+  id: CaesarLegionVenator
+  setPreference: true
+  name: job-name-caesar-legion-venator
+  description: job-description-caesar-legion-venator
+  playTimeTracker: CaesarLegionVenator
+  requirements:
+  - !type:CharacterDepartmentTimeRequirement
+     department: CaesarLegion
+     min: 43200 #12 hours
+  - !type:CharacterWhitelistRequirement
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterSexRequirement
+    sex: Male
+  - !type:CharacterGenderRequirement
+    gender: Male
+  startingGear: CaesarLegionVenatorGear
+  alwaysUseSpawner: true
+  icon: "JobIconLegioner"
+  supervisors: job-name-caesar-legion-mid
+  canBeAntag: false
+  access:
+  - CaesarLegion
+
+- type: startingGear
+  id: CaesarLegionVenatorGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpskirtCaesarLegion
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatCaesarLegionVenatorHelmet
+    gloves: N14ClothingHandsGlovesTribal
+    belt: ClothingBeltRope
+    suitstorage: N14WeaponPistol10mmPipe
+    pocket1: N14WeaponPistol10mmPipe
+    id: N14IDCaesarLegionVenatorMedal
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: CaesarLegionVenator

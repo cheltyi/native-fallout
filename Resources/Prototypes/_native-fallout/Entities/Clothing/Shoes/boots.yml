@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: N14ClothingBootsCaesarLegionCenturion
+  name: Centurion boots
+  description: "Protective boots for the needs of the Legion army."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Shoes/Boots/Caesar_Legion/CenturionBoots.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Shoes/Boots/Caesar_Legion/CenturionBoots.rsi
+  - type: NoSlip
+
+- type: entity
+  parent: ClothingShoesBase
+  id: N14ClothingBootsCaesarLegionTankCenturion
+  name: Tank Centurion boots
+  description: "Protective boots for the needs of the Legion army."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Shoes/Boots/Caesar_Legion/TankCenturionBoots.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Shoes/Boots/Caesar_Legion/TankCenturionBoots.rsi
+  - type: NoSlip

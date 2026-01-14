@@ -1,0 +1,43 @@
+- type: job
+  id: CaesarLegionRecruit
+  setPreference: true
+  name: job-name-caesar-legion-recruit
+  description: job-description-caesar-legion-recruit
+  playTimeTracker: CaesarLegionRecruit
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterSexRequirement
+    sex: Male
+  - !type:CharacterGenderRequirement
+    gender: Male
+  - !type:CharacterOverallTimeRequirement
+    min: 3600 # 1 hour
+  startingGear: CaesarLegionRecruitGear
+  alwaysUseSpawner: true
+  icon: "JobIconLegioner"
+  supervisors: job-name-caesar-legion-low
+  canBeAntag: false
+  access:
+  - CaesarLegion
+
+- type: startingGear
+  id: CaesarLegionRecruitGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpskirtCaesarLegion
+    mask: N14ClothingMaskBrownMask
+    eyes: N14ClothingEyesGlassesWelding
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatCaesarLegionRecruitHelmet
+    gloves: N14ClothingHandsGlovesTribal
+    pocket1: N14WeaponPistol10mmPipe
+    belt: ClothingBeltRope
+    id: N14IDCaesarLegionRecruitBadge
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: CaesarLegionRecruit

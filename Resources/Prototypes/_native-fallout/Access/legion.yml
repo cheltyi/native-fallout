@@ -1,0 +1,43 @@
+- type: accessLevel
+  id: CaesarLegionCenturionAccess
+  name: id-card-access-level-legion-centurion
+
+- type: accessLevel
+  id: CaesarLegionDecanAccess
+  name: id-card-access-level-legion-decan
+
+- type: accessLevel
+  id: CaesarLegionRecruitAccess
+  name: id-card-access-level-legion-recruit
+
+- type: accessLevel
+  id: CaesarLegionScoutAccess
+  name: id-card-access-level-legion-scout
+
+- type: accessLevel
+  id: CaesarLegionVeteranAccess
+  name: id-card-access-level-legion-veteran
+
+- type: accessLevel
+  id: CaesarLegionInstructorAccess
+  name: id-card-access-level-legion-instructor
+
+- type: accessLevel
+  id: CaesarLegionPrimeAccess
+  name: id-card-access-level-legion-prime
+
+- type: accessLevel
+  id: CaesarLegionVenatorAccess
+  name: id-card-access-level-legion-venator
+
+- type: accessLevel
+  id: CaesarLegionAccess
+  name: id-card-access-level-all
+
+- type: accessGroup
+  id: CaesarLegionAccess
+  tags:
+  - CaesarLegionRecruitAccess
+  - CaesarLegionVeteranAccess
+  - CaesarLegionPrimeAccess
+  - CaesarLegionVenatorAccess

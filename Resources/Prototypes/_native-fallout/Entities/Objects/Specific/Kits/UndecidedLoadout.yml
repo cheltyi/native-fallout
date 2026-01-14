@@ -1,0 +1,342 @@
+# Legion kits
+- type: entity
+  id: CaesarLegionCenturionloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionCenturionRangerSet
+    - CaesarLegionCenturionTankSet
+    - CaesarLegionCenturionStandartSet
+  - type: ActivatableUI
+    key: enum.UndecidedLoadoutBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.UndecidedLoadoutBackpackUIKey.Key:
+        type: UndecidedLoadoutBackpackBoundUserInterface
+
+- type: entity
+  id: CaesarLegionVenatorloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionVenatorSagitariaSet
+    - CaesarLegionVenatorMarathonSet
+
+- type: entity
+  id: CaesarLegionDecanloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionDecanSagitariaSet
+    - CaesarLegionDecanBerserkerSet
+
+- type: entity
+  id: CaesarLegionInstructorloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionInstructorFirearmSet
+    - CaesarLegionInstructorFighterSet
+
+- type: entity
+  id: CaesarLegionVeteranloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionVeteranFirearmSet
+    - CaesarLegionVeteranGuardSet
+    - CaesarLegionVeteranGladiatorSet
+
+- type: entity
+  id: CaesarLegionPrimeloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionPrimeDogTrainerSet
+    - CaesarLegionPrimeSlaveOwnerSet
+    - CaesarLegionPrimeVexillariusSet
+    - CaesarLegionPrimeFirearmSet
+
+- type: entity
+  id: CaesarLegionScoutLoadoutKits
+  name: Scout Kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionScoutResearcherSet
+    - CaesarLegionScoutOldWandererSet
+
+- type: entity
+  id: CaesarLegionRecruitLoadoutKits
+  name: Recruit Kit
+  description: "please only take one."
+  parent: CaesarLegionCenturionloadoutkits
+  components:
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CaesarLegionRecruitFirearmSet
+    - CaesarLegionRecruitSpearSet
+    - CaesarLegionRecruitHealerSet
+
+### Sets
+
+# Legion
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionCenturionRangerSet
+  name: undecided-loadout-category-centurion-ranger-name
+  description: undecided-loadout-category-centurion-ranger-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitCenturionRanger
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionCenturionTankSet
+  name: undecided-loadout-category-centurion-tank-name
+  description: undecided-loadout-category-centurion-tank-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitCenturionTank
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionCenturionStandartSet
+  name: undecided-loadout-category-centurion-standart-name
+  description: undecided-loadout-category-centurion-standart-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitCenturionStandart
+
+#Venator
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionVenatorSagitariaSet
+  name: undecided-loadout-category-venator-sagitaria-name
+  description: undecided-loadout-category-venator-sagitaria-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitVenatorSagitaria
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionVenatorMarathonSet
+  name: undecided-loadout-category-venator-marathon-name
+  description: undecided-loadout-category-venator-marathon-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitVenatorMarathon
+
+#Decan
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionDecanSagitariaSet
+  name: undecided-loadout-category-decan-sagitaria-name
+  description: undecided-loadout-category-decan-sagitaria-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitDecanSagitaria
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionDecanBerserkerSet
+  name: undecided-loadout-category-decan-berserker-name
+  description: undecided-loadout-category-decan-berserker-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitDecanBerserker
+
+#Instructor
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionInstructorFirearmSet
+  name: undecided-loadout-category-instructor-firearm-name
+  description: undecided-loadout-category-instructor-firearm-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitInstructorFirearm
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionInstructorFighterSet
+  name: undecided-loadout-category-instructor-fighter-name
+  description: undecided-loadout-category-instructor-fighter-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitInstructorFighter
+
+#Veteran
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionVeteranFirearmSet
+  name: undecided-loadout-category-veteran-firearm-name
+  description: undecided-loadout-category-veteran-firearm-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitVeteranFirearm
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionVeteranGuardSet
+  name: undecided-loadout-category-veteran-guard-name
+  description: undecided-loadout-category-veteran-guard-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitVeteranGuard
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionVeteranGladiatorSet
+  name: undecided-loadout-category-veteran-gladiator-name
+  description: undecided-loadout-category-veteran-gladiator-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitVeteranGladiator
+
+#Prime
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionPrimeDogTrainerSet
+  name: undecided-loadout-category-prime-dog-trainer-name
+  description: undecided-loadout-category-prime-dog-trainer-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitPrimeDogTrainer
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionPrimeSlaveOwnerSet
+  name: undecided-loadout-category-prime-slave-owner-name
+  description: undecided-loadout-category-prime-slave-owner-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitPrimeSlaveOwner
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionPrimeVexillariusSet
+  name: undecided-loadout-category-prime-vexillarius-name
+  description: undecided-loadout-category-prime-vexillarius-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitPrimeVexillarius
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionPrimeFirearmSet
+  name: undecided-loadout-category-prime-firearm-name
+  description: undecided-loadout-category-prime-firearm-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitPrimeFirearm
+
+#Scout
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionScoutResearcherSet
+  name: undecided-loadout-category-scout-researcher-name
+  description: undecided-loadout-category-scout-researcher-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitScoutResearcher
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionScoutOldWandererSet
+  name: undecided-loadout-category-scout-oldwanderer-name
+  description: undecided-loadout-category-scout-oldwanderer-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitScoutOldWanderer
+
+#Recruit
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionRecruitFirearmSet
+  name: undecided-loadout-category-recruit-base-name
+  description: undecided-loadout-category-recruit-base-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitRecruitBase
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionRecruitSpearSet
+  name: undecided-loadout-category-recruit-spear-name
+  description: undecided-loadout-category-recruit-spear-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitRecruitSpear
+
+- type: UndecidedLoadoutBackpackSet
+  id: CaesarLegionRecruitHealerSet
+  name: undecided-loadout-category-recruit-healer-name
+  description: undecided-loadout-category-recruit-healer-description
+  sprite:
+    sprite: _native-fallout/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - CaesarLegionKitRecruitHealer

@@ -1,0 +1,96 @@
+#MARK: Legion
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionRecruitBadge
+  name: distinctive sign
+  description: "The sign of the red bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-recruit
+  - type: PresetIdCard
+    job: CaesarLegionRecruit
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionScoutMedal
+  name: distinctive sign
+  description: "The sign of the red bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-scout
+  - type: PresetIdCard
+    job: CaesarLegionScout
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionPrimeMedal
+  name: distinctive medal
+  description: "A distinctive medal with the sign of the bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-prime
+  - type: PresetIdCard
+    job: CaesarLegionPrime
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionVeteranMedal
+  name: distinctive medal
+  description: "A distinctive medal with the sign of the bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-veteran
+  - type: PresetIdCard
+    job: CaesarLegionVeteran
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionInstructorMedal
+  name: distinctive medal
+  description: "A distinctive medal with the sign of the bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-instructor
+  - type: PresetIdCard
+    job: CaesarLegionInstructor
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionDecanMedal
+  name: distinctive medal
+  description: "A distinctive medal with the sign of the bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-decanus
+  - type: PresetIdCard
+    job: CaesarLegionDecan
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionVenatorMedal
+  name: distinctive medal
+  description: "A distinctive medal with the sign of the bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-venator
+  - type: PresetIdCard
+    job: CaesarLegionVenator
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDCaesarLegionCenturionMedal
+  name: distinctive medal
+  description: "A distinctive medal with the sign of the bull."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Objects/Misc/identification.rsi
+    state: medal-centurion
+  - type: PresetIdCard
+    job: CaesarLegionCenturion

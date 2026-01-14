@@ -1,0 +1,44 @@
+- type: job
+  id: CaesarLegionPrime
+  setPreference: true
+  name: job-name-caesar-legion-prime
+  description: job-description-caesar-legion-prime
+  playTimeTracker: CaesarLegionPrime
+  requirements:
+  - !type:CharacterDepartmentTimeRequirement
+    department: CaesarLegion
+    min: 10800 # 3 hours
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterSexRequirement
+    sex: Male
+  - !type:CharacterGenderRequirement
+    gender: Male
+  startingGear: CaesarLegionPrimeGear
+  alwaysUseSpawner: true
+  icon: "JobIconLegioner"
+  supervisors: job-name-caesar-legion-low
+  canBeAntag: false
+  access:
+  - CaesarLegion
+
+- type: startingGear
+  id: CaesarLegionPrimeGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpskirtCaesarLegion
+    neck: ClothingNeckRedScarf
+    eyes: N14ClothingEyesGlassesWelding
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatCaesarLegionPrimeHelmet
+    gloves: N14ClothingHandsGlovesTribal
+    belt: ClothingBeltRope
+    pocket1: N14WeaponPistol10mmPipe
+    id: N14IDCaesarLegionPrimeMedal
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: CaesarLegionPrime

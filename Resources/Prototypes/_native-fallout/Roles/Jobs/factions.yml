@@ -1,0 +1,13 @@
+- type: department
+  id: CaesarLegion
+  description: department-CaesarLegion-description
+  color: "#640b0b"
+  roles:
+  - CaesarLegionCenturion
+  - CaesarLegionVenator
+  - CaesarLegionDecan
+  - CaesarLegionInstructor
+  - CaesarLegionVeteran
+  - CaesarLegionPrime
+  - CaesarLegionScout
+  - CaesarLegionRecruit

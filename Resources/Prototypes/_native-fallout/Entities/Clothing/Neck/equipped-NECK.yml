@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: N14ClothingNeckCaesarLegionVexiliaryFlag
+  name: Compactable Flag
+  description: A great flag behind a great legion soldier
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Neck/Caesar_Legion/VexiliaryFlag.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Neck/Caesar_Legion/VexiliaryFlag.rsi

@@ -1,0 +1,13 @@
+# Enclave
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatEnclaveParadeOfficer
+  name: enclave parade officer cap
+  description: A decorative looking cap worn by Enclave high officers.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Head/FalloutHats/EnclaveParadeOfficer.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Head/FalloutHats/EnclaveParadeOfficer.rsi
+  # - type: ClothingSpecialModifier
+    # perceptionModifier: 1

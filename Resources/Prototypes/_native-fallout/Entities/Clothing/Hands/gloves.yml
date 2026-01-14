@@ -1,0 +1,67 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsGlovesCaesarLegionSunLegat
+  name: Sun legat gloves
+  description: "Protective bracers."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/SunLegatGloves.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/SunLegatGloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsGlovesCaesarLegionTankCenturion
+  name: Tank centurion gloves
+  description: "Protective bracers."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/TankCenturionGloves.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/TankCenturionGloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsGlovesCaesarLegionRangerCenturion
+  name: Ranger centurion gloves
+  description: "Protective bracers."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/RangerCenturionGloves.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/RangerCenturionGloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsGlovesCaesarLegionCenturion
+  name: Centurion gloves
+  description: "Protective bracers."
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/CenturionGloves.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/CenturionGloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsGlovesCaesarLegionPowerFist
+  name: power fist
+  description: These gauntlet allow you to punch incredibly strong.
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/Powerfist.rsi
+  - type: Clothing
+    sprite: _native-fallout/Clothing/Hands/Gloves/Caesar_Legion/Powerfist.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 1
+    heavyStaminaCost: 2
+    heavyDamageBaseModifier: 1.2
+    maxTargets: 1
+    damage:
+      types:
+       Blunt: 20
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true

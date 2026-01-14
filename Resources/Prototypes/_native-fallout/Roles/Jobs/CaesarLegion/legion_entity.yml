@@ -1,0 +1,103 @@
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarLegionCenturion
+  name: Legion Centurion
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionCenturionGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarLegionVenator
+  name: Legion Venator
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionVenatorGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarLegionDecan
+  name: Legion Decan
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionDecanGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarInstructor
+  name: Legion Instructor
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionInstructorGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarVeteran
+  name: Legion Veteran
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionVeteranGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarLegionPrime
+  name: Legion Prime
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionPrimeGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarLegionRecruit
+  name: Legion Recruit
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionRecruitGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion
+
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanCaesarLegionScout
+  name: Legion Scout
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [CaesarLegionScoutGear]
+    - type: NpcFactionMember
+      factions:
+      - CaesarLegion

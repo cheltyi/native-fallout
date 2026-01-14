@@ -1,0 +1,35 @@
+- type: entity
+  parent: N14ChemicalSyringe
+  id: N14HydraInhalerCaesarLegion
+  suffix: empty
+  name: legion hydra inhaler
+  description: A bottle of Supa Yum soda with several vials attached to it. Contains a mildly potent healing chemical that comes with addictive side effects.
+  components:
+  - type: Sprite
+    scale: 0.75, 0.75
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    layers:
+    - state: hydra
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: hydra
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 25
+
+- type: entity
+  parent: N14HydraInhalerCaesarLegion
+  id: N14HydraCaesarLegion
+  suffix: filled
+  name: legion hydra
+  description: A bottle of Supa Yum soda with several vials attached to it. Contains a mildly potent healing chemical that comes with addictive side effects.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 25
+        reagents:
+        - ReagentId: HealingMixture
+          Quantity: 25

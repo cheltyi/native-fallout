@@ -1,0 +1,6 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconLegioner
+  icon:
+    sprite: _native-fallout/Interface/Misc/job_icons.rsi
+    state: Legioner
