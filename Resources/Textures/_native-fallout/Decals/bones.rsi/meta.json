@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/tgstation/tgstation/tree/423404b31e36c4605faacec881b324db8997b0a6",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bones1"
+    },
+    {
+      "name": "bones2"
+    },
+    {
+      "name": "bones3"
+    },
+    {
+      "name": "bones4"
+    },
+    {
+      "name": "bones5"
+    },
+    {
+      "name": "bones6"
+    },
+    {
+      "name": "bones7"
+    },
+    {
+      "name": "bones8"
+    }
+  ]
+}
