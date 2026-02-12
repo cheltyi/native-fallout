@@ -131,7 +131,7 @@
   name: dead tree
   components:
   - type: Sprite
-    sprite: _Nuclear14/Structures/Misc/trees-ms.rsi
+    sprite: _Nuclear14/Structures/Misc/dead-trees.rsi
     state: dead_tree4
   - type: Fixtures
     fixtures:
@@ -149,7 +149,7 @@
   name: dead tree
   components:
   - type: Sprite
-    sprite: _Nuclear14/Structures/Misc/trees-ms.rsi
+    sprite: _Nuclear14/Structures/Misc/dead-trees.rsi
     state: dead_tree5
   - type: Fixtures
     fixtures:
