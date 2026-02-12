@@ -1,0 +1,395 @@
+- type: tile
+  id: N14FloorPlanetBones1
+  name: tiles-bones1-floor
+  sprite: /Textures/_native-fallout/Tiles/Bones/bones1.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetBones2
+  name: tiles-bones2-floor
+  sprite: /Textures/_native-fallout/Tiles/Bones/bones2.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetBones3
+  name: tiles-bones3-floor
+  sprite: /Textures/_native-fallout/Tiles/Bones/bones3.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetBones4
+  name: tiles-bones4-floor
+  sprite: /Textures/_native-fallout/Tiles/Bones/bones4.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetBones5
+  name: tiles-bones5-floor
+  sprite: /Textures/_native-fallout/Tiles/Bones/bones6.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetBones6
+  name: tiles-bones6-floor
+  sprite: /Textures/_native-fallout/Tiles/Bones/bones6.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert1
+  name: tiles-desert1-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert1.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert2
+  name: tiles-desert2-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert2.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert3
+  name: tiles-desert3-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert3.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert4
+  name: tiles-desert4-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert4.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert5
+  name: tiles-desert5-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert5.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert6
+  name: tiles-desert6-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert6.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert7
+  name: tiles-desert7-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert7.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert8
+  name: tiles-desert8-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert8.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesert9
+  name: tiles-desert9-floor
+  sprite: /Textures/_native-fallout/Tiles/Desert/desert9.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad1
+  name: tiles-desertroad1-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad1.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad2
+  name: tiles-desertroad2-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad2.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad3
+  name: tiles-desertroad3-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad3.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad4
+  name: tiles-desertroad4-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad4.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad5
+  name: tiles-desertroad5-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad5.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad6
+  name: tiles-desertroad6-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad6.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad7
+  name: tiles-desertroad7-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad7.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad8
+  name: tiles-desertroad8-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad8.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad9
+  name: tiles-desertroad9-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad9.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad10
+  name: tiles-desertroad10-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad10.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad11
+  name: tiles-desertroad11-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad11.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad12
+  name: tiles-desertroad12-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad12.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad13
+  name: tiles-desertroad13-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad13.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad14
+  name: tiles-desertroad14-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad14.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad15
+  name: tiles-desertroad15-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad15.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad16
+  name: tiles-desertroad16-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad16.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad17
+  name: tiles-desertroad17-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad17.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad18
+  name: tiles-desertroad18-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad18.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad19
+  name: tiles-desertroad19-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad19.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad20
+  name: tiles-desertroad20-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad20.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: N14FloorPlanetDesertRoad21
+  name: tiles-desertroad21-floor
+  sprite: /Textures/_native-fallout/Tiles/DesertRoad/desertroad21.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true

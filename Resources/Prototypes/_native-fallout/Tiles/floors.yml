@@ -1,0 +1,10 @@
+- type: tile
+  id: N14FloorPlanetHomeFloor1
+  name: tiles-homefloor1-floor
+  sprite: /Textures/_native-fallout/Tiles/Floor/floor1.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
+  indestructible: true

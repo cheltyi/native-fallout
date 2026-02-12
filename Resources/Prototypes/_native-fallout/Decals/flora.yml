@@ -1,0 +1,59 @@
+- type: decal
+  id: N14Cactus1
+  parent: Bush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\cactus.rsi
+    state: cactus1
+
+- type: decal
+  id: N14Cactus2
+  parent: Bush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\cactus.rsi
+    state: cactus2
+
+- type: decal
+  id: N14Cactus3
+  parent: Bush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\cactus.rsi
+    state: cactus3
+
+- type: decal
+  id: N14Cactus4
+  parent: Bush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\cactus.rsi
+    state: cactus4
+
+- type: decal
+  id: N14Cactus5
+  parent: Bush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\cactus.rsi
+    state: cactus5
+
+- type: decal
+  id: N14Cactus6
+  parent: Bush
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\cactus.rsi
+    state: cactus6

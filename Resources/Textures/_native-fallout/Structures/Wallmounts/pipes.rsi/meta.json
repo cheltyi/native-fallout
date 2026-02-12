@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Made by boribyhek2 (discord)",
+  "size": {
+      "x": 32,
+      "y": 32
+  },
+  "states": [
+    {
+      "name": "pipes1"
+    },
+    {
+      "name": "pipes2"
+    },
+    {
+      "name": "pipes3"
+    },
+    {
+      "name": "pipes4"
+    },
+    {
+      "name": "pipes5"
+    },
+    {
+      "name": "pipes6"
+    },
+    {
+      "name": "pipes7"
+    },
+    {
+      "name": "pipes8"
+    },
+    {
+      "name": "pipes9"
+    },
+    {
+      "name": "pipes10"
+    },
+    {
+      "name": "pipes11"
+    }
+  ]
+}

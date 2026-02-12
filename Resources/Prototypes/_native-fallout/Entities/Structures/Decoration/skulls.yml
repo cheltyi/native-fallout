@@ -1,0 +1,8 @@
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationSkulls1
+  name: черепа на верёвке
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Decoration/skulls.rsi
+    state: skulls1

@@ -1,0 +1,188 @@
+- type: decal
+  id: N14Bones1
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones1
+
+- type: decal
+  id: N14Bones2
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones2
+
+- type: decal
+  id: N14Bones3
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones3
+
+- type: decal
+  id: N14Bones4
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones4
+
+- type: decal
+  id: N14Bones5
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones5
+
+- type: decal
+  id: N14Bones6
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones6
+
+- type: decal
+  id: N14Bones7
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones7
+
+- type: decal
+  id: N14Bones8
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\bones.rsi
+    state: bones8
+
+- type: decal
+  id: N14Remains1
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains1
+
+- type: decal
+  id: N14Remains2
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains2
+
+- type: decal
+  id: N14Remains3
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains3
+
+- type: decal
+  id: N14Remains4
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains4
+
+- type: decal
+  id: N14Remains5
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains5
+
+- type: decal
+  id: N14Remains6
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains6
+
+- type: decal
+  id: N14Remains7
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains7
+
+- type: decal
+  id: N14Remains8
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains8
+
+- type: decal
+  id: N14Remains9
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains9
+
+- type: decal
+  id: N14Remains10
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains10
+
+- type: decal
+  id: N14Remains11
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains11
+
+- type: decal
+  id: N14Remains12
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains12
+
+- type: decal
+  id: N14Remains13
+  parent: Flower
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _native-fallout\Decals\remains.rsi
+    state: remains13

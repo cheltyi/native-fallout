@@ -1,0 +1,87 @@
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes1
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes1
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes2
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes2
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes3
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes3
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes4
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes4
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes5
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes5
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes6
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes6
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes7
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes7
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes8
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes8
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes9
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes9
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes10
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes10
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14WallmountPipes11
+  components:
+  - type: Sprite
+    sprite: _native-fallout/Structures/Wallmounts/pipes.rsi
+    state: pipes11
