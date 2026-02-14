@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Native Fallout",
+  "size": {
+    "x": 48,
+    "y": 161
+  },
+  "states": [
+    {
+      "name": "empty",
+      "directions": 1
+    },
+    {
+      "name": "bottom",
+      "directions": 1
+    },
+    {
+      "name": "middle",
+      "directions": 1
+    },
+    {
+      "name": "top",
+      "directions": 1
+    }
+  ]
+}

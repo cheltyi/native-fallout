@@ -1,0 +1,16 @@
+# Spawner entities for placing capture points on maps
+# These are invisible markers that mappers can place in the map editor
+
+- type: entity
+  id: N14SpawnPointCapturePoint
+  name: capture point marker
+  parent: MarkerBase
+  description: Place this on the map. It will spawn a neutral capture point.
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - N14CapturePoint
