@@ -68,6 +68,12 @@ public sealed partial class PointOfInterestComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ResetAccumulator = 0f;
+
+    /// <summary>
+    /// Whether the flag should animate when fully raised (1 = animated, 0 = static).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int AnimateFlag = 1;
 }
 
 /// <summary>

@@ -16,6 +16,9 @@ public sealed class PointOfInterestVisualizerSystem : VisualizerSystem<PointOfIn
         if (!args.Sprite.LayerMapTryGet("flag", out var flagLayer))
             return;
 
+        if (!args.Sprite.LayerMapTryGet("flagpole", out var flagpoleLayer))
+            return;
+
         // Get capture state and progress
         if (!AppearanceSystem.TryGetData<CaptureState>(uid, PointOfInterestVisuals.State, out var state, args.Component))
             return;
@@ -26,6 +29,15 @@ public sealed class PointOfInterestVisualizerSystem : VisualizerSystem<PointOfIn
         // Try to get the faction
         string? factionId = null;
         AppearanceSystem.TryGetData<string>(uid, PointOfInterestVisuals.Faction, out factionId, args.Component);
+
+        // Try to get the animation flag
+        if (!AppearanceSystem.TryGetData<int>(uid, PointOfInterestVisuals.AnimateFlag, out var animateFlag, args.Component))
+            animateFlag = 1; // Default to animated
+
+        // Always show the flagpole
+        args.Sprite.LayerSetVisible(flagpoleLayer, true);
+        args.Sprite.LayerSetRSI(flagpoleLayer, new Robust.Shared.Utility.ResPath("_native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi"));
+        args.Sprite.LayerSetState(flagpoleLayer, "empty");
 
         // Determine flag state based on capture progress
         string flagState = "empty";
@@ -42,24 +54,31 @@ public sealed class PointOfInterestVisualizerSystem : VisualizerSystem<PointOfIn
         switch (state)
         {
             case CaptureState.Neutral:
-                // Empty flagpole - use empty flagpole RSI
-                args.Sprite.LayerSetRSI(flagLayer, new Robust.Shared.Utility.ResPath("_native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi"));
-                flagState = "empty";
-                break;
+                // No flag - hide the flag layer
+                args.Sprite.LayerSetVisible(flagLayer, false);
+                return;
 
             case CaptureState.Owned:
                 // Flag fully raised - use faction RSI
                 if (capturingFaction != null)
+                {
+                    args.Sprite.LayerSetVisible(flagLayer, true);
                     UpdateFactionRSI(args.Sprite, flagLayer, capturingFaction);
+                    // Use animated state if AnimateFlag is 1, otherwise use static "top"
+                    flagState = animateFlag == 1 ? "top-waving" : "top";
+                }
                 else
-                    args.Sprite.LayerSetRSI(flagLayer, new Robust.Shared.Utility.ResPath("_native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi"));
-                flagState = "top";
+                {
+                    args.Sprite.LayerSetVisible(flagLayer, false);
+                    return;
+                }
                 break;
 
             case CaptureState.Contested_Lowering:
                 // Flag being lowered: use owning faction's RSI (the one being lowered)
                 if (capturingFaction != null)
                 {
+                    args.Sprite.LayerSetVisible(flagLayer, true);
                     UpdateFactionRSI(args.Sprite, flagLayer, capturingFaction);
                     
                     // Progress -> State mapping (lowering):
@@ -78,9 +97,9 @@ public sealed class PointOfInterestVisualizerSystem : VisualizerSystem<PointOfIn
                 }
                 else
                 {
-                    // No valid faction - keep empty flagpole
-                    args.Sprite.LayerSetRSI(flagLayer, new Robust.Shared.Utility.ResPath("_native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi"));
-                    flagState = "empty";
+                    // No valid faction - hide flag
+                    args.Sprite.LayerSetVisible(flagLayer, false);
+                    return;
                 }
                 break;
 
@@ -96,19 +115,32 @@ public sealed class PointOfInterestVisualizerSystem : VisualizerSystem<PointOfIn
                     // 0.33 - 0.66 = middle
                     // 0.66 - 1.0 = top
                     if (progress <= 0.01f)
-                        flagState = "empty";
+                    {
+                        // Just starting - hide flag
+                        args.Sprite.LayerSetVisible(flagLayer, false);
+                        return;
+                    }
                     else if (progress < 0.33f)
+                    {
+                        args.Sprite.LayerSetVisible(flagLayer, true);
                         flagState = "bottom";
+                    }
                     else if (progress < 0.66f)
+                    {
+                        args.Sprite.LayerSetVisible(flagLayer, true);
                         flagState = "middle";
+                    }
                     else
+                    {
+                        args.Sprite.LayerSetVisible(flagLayer, true);
                         flagState = "top";
+                    }
                 }
                 else
                 {
-                    // No valid faction - keep empty flagpole
-                    args.Sprite.LayerSetRSI(flagLayer, new Robust.Shared.Utility.ResPath("_native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi"));
-                    flagState = "empty";
+                    // No valid faction - hide flag
+                    args.Sprite.LayerSetVisible(flagLayer, false);
+                    return;
                 }
                 break;
         }

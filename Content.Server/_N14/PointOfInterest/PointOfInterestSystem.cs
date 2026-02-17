@@ -7,6 +7,12 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 using System.Linq;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Content.Server.Chat.Systems;
+using Content.Server.Chat;
+using Robust.Shared.Player;
+using Robust.Shared.Localization;
 
 namespace Content.Server._N14.PointOfInterest;
 
@@ -19,6 +25,8 @@ public sealed class PointOfInterestSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     private const float UpdateInterval = 1f; // Update every second
     private float _timeSinceUpdate = 0f;
@@ -28,13 +36,31 @@ public sealed class PointOfInterestSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PointOfInterestComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<PointOfInterestComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<KeyPointOfInterestComponent, ComponentInit>(OnKeyPointInit);
+    }
+    
+    private void OnKeyPointInit(EntityUid uid, KeyPointOfInterestComponent component, ComponentInit args)
+    {
+        // Key points start locked
+        component.IsLocked = true;
     }
 
     private void OnComponentInit(EntityUid uid, PointOfInterestComponent component, ComponentInit args)
     {
-        // Initialize with neutral state
-        component.State = CaptureState.Neutral;
-        component.CaptureProgress = 0f;
+        // Initialize state based on whether the point is already owned
+        if (component.OwningFaction != null)
+        {
+            component.State = CaptureState.Owned;
+            component.CaptureProgress = 1.0f;
+        }
+        else
+        {
+            component.State = CaptureState.Neutral;
+            component.CaptureProgress = 0f;
+        }
+        
+        // Update appearance immediately
+        UpdateAppearance(uid, component);
     }
 
     private void OnComponentShutdown(EntityUid uid, PointOfInterestComponent component, ComponentShutdown args)
@@ -52,6 +78,9 @@ public sealed class PointOfInterestSystem : EntitySystem
 
         _timeSinceUpdate = 0f;
 
+        // First, check if any key points should be unlocked
+        CheckKeyPointLocks();
+
         // Process all capture points
         var query = EntityQueryEnumerator<PointOfInterestComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var poi, out var xform))
@@ -59,9 +88,123 @@ public sealed class PointOfInterestSystem : EntitySystem
             UpdateCapturePoint(uid, poi, xform, UpdateInterval);
         }
     }
+    
+    private void CheckKeyPointLocks()
+    {
+        // Check for each faction if they have lost all secondary points
+        var factionSecondaryPoints = new Dictionary<ProtoId<NpcFactionPrototype>, List<EntityUid>>();
+        
+        // Collect all secondary points grouped by owning faction
+        var secondaryQuery = EntityQueryEnumerator<SecondaryPointOfInterestComponent, PointOfInterestComponent>();
+        while (secondaryQuery.MoveNext(out var uid, out var secondary, out var poi))
+        {
+            if (poi.OwningFaction != null)
+            {
+                if (!factionSecondaryPoints.ContainsKey(poi.OwningFaction.Value))
+                    factionSecondaryPoints[poi.OwningFaction.Value] = new List<EntityUid>();
+                factionSecondaryPoints[poi.OwningFaction.Value].Add(uid);
+            }
+        }
+        
+        // Check all key points
+        var keyQuery = EntityQueryEnumerator<KeyPointOfInterestComponent, PointOfInterestComponent>();
+        while (keyQuery.MoveNext(out var keyUid, out var keyPoint, out var keyPoi))
+        {
+            // If this key point is owned by a faction
+            if (keyPoi.OwningFaction != null)
+            {
+                var owningFaction = keyPoi.OwningFaction.Value;
+                
+                // Check if this faction has any secondary points left
+                bool hasSecondaryPoints = factionSecondaryPoints.ContainsKey(owningFaction) && 
+                                         factionSecondaryPoints[owningFaction].Count > 0;
+                
+                // If faction has no secondary points left, unlock ALL enemy key points
+                if (!hasSecondaryPoints && keyPoint.IsLocked)
+                {
+                    UnlockKeyPoint(keyUid, keyPoint, keyPoi, owningFaction);
+                }
+                // If faction regains secondary points, lock their key point again
+                else if (hasSecondaryPoints && !keyPoint.IsLocked && keyPoi.OwningFaction == owningFaction)
+                {
+                    LockKeyPoint(keyUid, keyPoint);
+                }
+            }
+        }
+    }
+    
+    private void UnlockKeyPoint(EntityUid uid, KeyPointOfInterestComponent keyPoint, PointOfInterestComponent poi, ProtoId<NpcFactionPrototype> defeatedFaction)
+    {
+        keyPoint.IsLocked = false;
+        Dirty(uid, keyPoint);
+        
+        // Find who is attacking (who just captured the last secondary point)
+        // We need to figure out who's attacking by checking all points
+        ProtoId<NpcFactionPrototype>? attackingFaction = null;
+        
+        var secondaryQuery = EntityQueryEnumerator<SecondaryPointOfInterestComponent, PointOfInterestComponent>();
+        while (secondaryQuery.MoveNext(out var suid, out var secondary, out var spoi))
+        {
+            // Find a faction that owns points but is NOT the defeated faction
+            if (spoi.OwningFaction != null && spoi.OwningFaction != defeatedFaction)
+            {
+                attackingFaction = spoi.OwningFaction;
+                break;
+            }
+        }
+        
+        // Send "last flag" message with attacker->defender combination
+        if (attackingFaction != null)
+        {
+            var locKey = GetLastFlagLocKey(attackingFaction.Value, defeatedFaction);
+            if (locKey != null)
+            {
+                var warningMessage = Loc.GetString(locKey);
+                _chat.DispatchGlobalAnnouncement(warningMessage, colorOverride: Color.Red);
+            }
+        }
+    }
+    
+    private string? GetLastFlagLocKey(ProtoId<NpcFactionPrototype> attacker, ProtoId<NpcFactionPrototype> defender)
+    {
+        // Format: poi-lastflag-{attacker}-{defender}
+        var attackerKey = attacker.Id switch
+        {
+            "NCR" => "ncr",
+            "BrotherhoodMidwest" => "bos",
+            "CaesarLegion" => "legion",
+            _ => null
+        };
+        
+        var defenderKey = defender.Id switch
+        {
+            "NCR" => "ncr",
+            "BrotherhoodMidwest" => "bos",
+            "CaesarLegion" => "legion",
+            _ => null
+        };
+        
+        if (attackerKey != null && defenderKey != null)
+            return $"poi-lastflag-{attackerKey}-{defenderKey}";
+        
+        return null;
+    }
+    
+    private void LockKeyPoint(EntityUid uid, KeyPointOfInterestComponent keyPoint)
+    {
+        keyPoint.IsLocked = true;
+        Dirty(uid, keyPoint);
+    }
 
     private void UpdateCapturePoint(EntityUid uid, PointOfInterestComponent poi, TransformComponent xform, float deltaTime)
     {
+        // Check if this is a locked key point
+        if (TryComp<KeyPointOfInterestComponent>(uid, out var keyPoint) && keyPoint.IsLocked)
+        {
+            // Don't process capture for locked key points
+            return;
+        }
+        
         // Get all entities in the capture radius
         var coords = _transform.GetMapCoordinates(uid, xform);
         var entitiesInRange = _lookup.GetEntitiesInRange(coords, poi.CaptureRadius);
@@ -230,6 +373,122 @@ public sealed class PointOfInterestSystem : EntitySystem
         poi.CapturingFaction = null;
 
         _popup.PopupEntity($"Point of interest captured by {faction}!", uid, PopupType.Large);
+        
+        // Check if this is a key point - play victory sound and announcement
+        if (TryComp<KeyPointOfInterestComponent>(uid, out var keyPoint))
+        {
+            HandleKeyPointCapture(uid, keyPoint, faction);
+        }
+    }
+    
+    private void HandleKeyPointCapture(EntityUid uid, KeyPointOfInterestComponent keyPoint, ProtoId<NpcFactionPrototype> capturingFaction)
+    {
+        // After first capture, the key point becomes a regular point (unlocked forever)
+        keyPoint.IsLocked = false;
+        
+        // Get the component to see who previously owned this point
+        if (!TryComp<PointOfInterestComponent>(uid, out var poi))
+            return;
+        
+        // The defender is the one who just lost the key point (previous owner from before this capture started)
+        // We need to track this - for now, we'll determine it from the key point entity itself
+        ProtoId<NpcFactionPrototype>? defeatedFaction = null;
+        
+        // Check all key points to find which faction this key point belongs to
+        var keyQuery = EntityQueryEnumerator<KeyPointOfInterestComponent, PointOfInterestComponent>();
+        while (keyQuery.MoveNext(out var kuid, out var kp, out var kpoi))
+        {
+            if (kuid == uid)
+            {
+                // This is our key point - check metadata or prototypes to determine which faction it was for
+                // For now, we'll infer from remaining points
+                var allFactions = new[] { "NCR", "BrotherhoodMidwest", "CaesarLegion" };
+                foreach (var fid in allFactions)
+                {
+                    if (fid != capturingFaction.Id)
+                    {
+                        // Check if this faction has any points left
+                        var hasPoints = false;
+                        var checkQuery = EntityQueryEnumerator<PointOfInterestComponent>();
+                        while (checkQuery.MoveNext(out var cuid, out var cpoi))
+                        {
+                            if (cpoi.OwningFaction?.Id == fid && cuid != uid)
+                            {
+                                hasPoints = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!hasPoints)
+                        {
+                            defeatedFaction = new ProtoId<NpcFactionPrototype>(fid);
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        
+        // Play victory sound for the ATTACKING faction (not the defeated one)
+        var attackerSound = GetVictorySoundForFaction(capturingFaction);
+        if (attackerSound != null)
+        {
+            _audio.PlayGlobal(attackerSound, Filter.Broadcast(), true);
+        }
+        
+        // Send victory message with attacker->defender combination
+        if (defeatedFaction != null)
+        {
+            var locKey = GetVictoryLocKey(capturingFaction, defeatedFaction.Value);
+            if (locKey != null)
+            {
+                var message = Loc.GetString(locKey);
+                _chat.DispatchGlobalAnnouncement(message, colorOverride: Color.Red);
+            }
+        }
+    }
+    
+    private string? GetVictoryLocKey(ProtoId<NpcFactionPrototype> attacker, ProtoId<NpcFactionPrototype> defender)
+    {
+        // Format: poi-victory-{attacker}-{defender}
+        var attackerKey = attacker.Id switch
+        {
+            "NCR" => "ncr",
+            "BrotherhoodMidwest" => "bos",
+            "CaesarLegion" => "legion",
+            _ => null
+        };
+        
+        var defenderKey = defender.Id switch
+        {
+            "NCR" => "ncr",
+            "BrotherhoodMidwest" => "bos",
+            "CaesarLegion" => "legion",
+            _ => null
+        };
+        
+        if (attackerKey != null && defenderKey != null)
+            return $"poi-victory-{attackerKey}-{defenderKey}";
+        
+        return null;
+    }
+    
+    private SoundSpecifier? GetVictorySoundForFaction(ProtoId<NpcFactionPrototype> faction)
+    {
+        // Return the victory sound for the attacking faction
+        var soundPath = faction.Id switch
+        {
+            "NCR" => "/Audio/_native-fallout/Effects/Victory/victory_ncr.ogg",
+            "BrotherhoodMidwest" => "/Audio/_native-fallout/Effects/Victory/victory_bos.ogg",
+            "CaesarLegion" => "/Audio/_native-fallout/Effects/Victory/victory_legion.ogg",
+            _ => null
+        };
+        
+        if (soundPath != null)
+            return new SoundPathSpecifier(soundPath);
+        
+        return null;
     }
 
     private void HandleEmptyZone(EntityUid uid, PointOfInterestComponent poi, float deltaTime)
@@ -274,6 +533,7 @@ public sealed class PointOfInterestSystem : EntitySystem
         // Update visual state based on capture progress
         _appearance.SetData(uid, PointOfInterestVisuals.State, poi.State);
         _appearance.SetData(uid, PointOfInterestVisuals.CaptureProgress, poi.CaptureProgress);
+        _appearance.SetData(uid, PointOfInterestVisuals.AnimateFlag, poi.AnimateFlag);
         
         // Set faction based on current state
         if (poi.State == CaptureState.Owned && poi.OwningFaction != null)

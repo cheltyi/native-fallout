@@ -18,4 +18,5 @@ public enum PointOfInterestVisuals : byte
     State,
     CaptureProgress,
     Faction,
+    AnimateFlag,
 }

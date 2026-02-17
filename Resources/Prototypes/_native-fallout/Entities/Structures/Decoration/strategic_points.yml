@@ -1,0 +1,228 @@
+# Strategic Point of Interest entities - Key and Secondary points
+
+# ============================================
+# BASE ENTITIES
+# ============================================
+
+- type: entity
+  parent: N14CapturePoint
+  id: N14SecondaryPointBase
+  abstract: true
+  name: secondary point
+  description: A secondary strategic point. If a faction loses all secondary points, their key point becomes vulnerable.
+  components:
+  - type: SecondaryPointOfInterest
+
+- type: entity
+  parent: N14CapturePoint
+  id: N14KeyPointBase
+  abstract: true
+  name: key point
+  description: A key strategic point. Can only be captured when the enemy has lost all secondary points. Capturing this wins the battle!
+  components:
+  - type: KeyPointOfInterest
+    isLocked: true
+
+# ============================================
+# SECONDARY POINTS - NEUTRAL
+# ============================================
+
+- type: entity
+  parent: N14SecondaryPointBase
+  id: N14SecondaryPointNeutral
+  suffix: Neutral
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+
+# ============================================
+# SECONDARY POINTS - NCR OWNED
+# ============================================
+
+- type: entity
+  parent: N14SecondaryPointBase
+  id: N14SecondaryPointNCR
+  suffix: NCR
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: NCR
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+
+# ============================================
+# SECONDARY POINTS - BOS OWNED
+# ============================================
+
+- type: entity
+  parent: N14SecondaryPointBase
+  id: N14SecondaryPointBOS
+  suffix: BOS
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: BrotherhoodMidwest
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+
+# ============================================
+# SECONDARY POINTS - LEGION OWNED
+# ============================================
+
+- type: entity
+  parent: N14SecondaryPointBase
+  id: N14SecondaryPointLegion
+  suffix: Legion
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: CaesarLegion
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+
+# ============================================
+# SECONDARY POINTS - TRIBAL OWNED
+# ============================================
+
+- type: entity
+  parent: N14SecondaryPointBase
+  id: N14SecondaryPointTribal
+  suffix: Tribal
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: Tribal
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+
+# ============================================
+# KEY POINTS - NEUTRAL
+# ============================================
+
+- type: entity
+  parent: N14KeyPointBase
+  id: N14KeyPointNeutral
+  suffix: Neutral
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+
+# ============================================
+# KEY POINTS - NCR OWNED
+# ============================================
+
+- type: entity
+  parent: N14KeyPointBase
+  id: N14KeyPointNCR
+  suffix: NCR
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: NCR
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+  - type: KeyPointOfInterest
+    victorySound:
+      path: /Audio/_native-fallout/Effects/Victory/victory_ncr.ogg
+
+# ============================================
+# KEY POINTS - BOS OWNED
+# ============================================
+
+- type: entity
+  parent: N14KeyPointBase
+  id: N14KeyPointBOS
+  suffix: BOS
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: BrotherhoodMidwest
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+  - type: KeyPointOfInterest
+    victorySound:
+      path: /Audio/_native-fallout/Effects/Victory/victory_bos.ogg
+
+# ============================================
+# KEY POINTS - LEGION OWNED
+# ============================================
+
+- type: entity
+  parent: N14KeyPointBase
+  id: N14KeyPointLegion
+  suffix: Legion
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: CaesarLegion
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+  - type: KeyPointOfInterest
+    victorySound:
+      path: /Audio/_native-fallout/Effects/Victory/victory_legion.ogg
+
+# ============================================
+# KEY POINTS - TRIBAL OWNED (No victory sound)
+# ============================================
+
+- type: entity
+  parent: N14KeyPointBase
+  id: N14KeyPointTribal
+  suffix: Tribal
+  components:
+  - type: PointOfInterest
+    animateFlag: 1
+    owningFaction: Tribal
+    captureProgress: 1.0
+    state: Owned
+    factionFlags:
+      NCR: "N14CapturePointFlagNCR"
+      BrotherhoodMidwest: "N14CapturePointFlagBOS"
+      CaesarLegion: "N14CapturePointFlagLegion"
+      Tribal: "N14CapturePointFlagTribe"
+  # No victory sound for Tribal faction

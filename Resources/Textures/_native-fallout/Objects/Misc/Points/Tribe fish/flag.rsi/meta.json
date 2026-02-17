@@ -22,6 +22,13 @@
     {
       "name": "top",
       "directions": 1
+    },
+    {
+      "name": "top-waving",
+      "directions": 1,
+      "delays": [
+        [0.1, 0.1, 0.1, 0.1]
+      ]
     }
   ]
 }

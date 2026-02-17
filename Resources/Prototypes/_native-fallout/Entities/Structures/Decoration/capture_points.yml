@@ -12,6 +12,8 @@
     drawdepth: Overdoors
     layers:
     - state: empty
+      map: ["flagpole"]
+    - state: empty
       map: ["flag"]
   - type: Appearance
   - type: PointOfInterest
@@ -34,5 +36,7 @@
     sprite: _native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi
     drawdepth: Overdoors
     layers:
+    - state: empty
+      map: ["flagpole"]
     - state: empty
       map: ["flag"]
