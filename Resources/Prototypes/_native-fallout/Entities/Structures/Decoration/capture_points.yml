@@ -1,23 +1,39 @@
 # Base capture point entity
 - type: entity
   id: N14BaseCapturePoint
-  name: capture point
-  description: A strategic point that can be captured by factions.
+  name: стратегическая точка
+  description: Стратегическая точка, которую могут захватывать фракции.
   abstract: true
   components:
   - type: Transform
     anchored: true
+  - type: Clickable
+  - type: InteractionOutline
   - type: Sprite
     sprite: _native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi
     drawdepth: Overdoors
+    offset: 0, 2.515625
     layers:
     - state: empty
       map: ["flagpole"]
     - state: empty
       map: ["flag"]
   - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-1.0,0.4,0.4"
+        density: 190
+        mask:
+        - Impassable
+        - HighImpassable
+        - BulletImpassable
+        layer:
+        - Opaque
   - type: PointOfInterest
-    captureRadius: 3.0
+    captureRadius: 7.0
     captureTime: 180.0  # 3 minutes in seconds
     factionFlags:
       NCR: "N14CapturePointFlagNCR"
@@ -29,12 +45,13 @@
 - type: entity
   parent: N14BaseCapturePoint
   id: N14CapturePoint
-  name: strategic point
-  description: A strategic location that factions fight to control. Stand in the area for 3 minutes to capture it.
+  name: стратегическая точка
+  description: Стратегическая локация, за которую сражаются фракции. Постойте в зоне 3 минуты, чтобы захватить её.
   components:
   - type: Sprite
     sprite: _native-fallout/Objects/Misc/Points/Flagpole/flagpole.rsi
     drawdepth: Overdoors
+    offset: 0, 2.515625
     layers:
     - state: empty
       map: ["flagpole"]

@@ -16,7 +16,7 @@ public sealed partial class PointOfInterestComponent : Component
     /// The radius around this entity that counts as the capture zone.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float CaptureRadius = 3f;
+    public float CaptureRadius = 7f;
 
     /// <summary>
     /// Time required to capture an unclaimed point or neutralize an enemy point (in seconds).

@@ -11,6 +11,8 @@
   name: secondary point
   description: A secondary strategic point. If a faction loses all secondary points, their key point becomes vulnerable.
   components:
+  - type: Clickable
+  - type: InteractionOutline
   - type: SecondaryPointOfInterest
 
 - type: entity

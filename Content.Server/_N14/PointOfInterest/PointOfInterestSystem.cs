@@ -13,6 +13,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Chat;
 using Robust.Shared.Player;
 using Robust.Shared.Localization;
+using Content.Shared.Examine;
 
 namespace Content.Server._N14.PointOfInterest;
 
@@ -37,12 +38,69 @@ public sealed class PointOfInterestSystem : EntitySystem
         SubscribeLocalEvent<PointOfInterestComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<PointOfInterestComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<KeyPointOfInterestComponent, ComponentInit>(OnKeyPointInit);
+        SubscribeLocalEvent<PointOfInterestComponent, ExaminedEvent>(OnExamined);
     }
     
     private void OnKeyPointInit(EntityUid uid, KeyPointOfInterestComponent component, ComponentInit args)
     {
         // Key points start locked
         component.IsLocked = true;
+    }
+
+    private void OnExamined(EntityUid uid, PointOfInterestComponent component, ExaminedEvent args)
+    {
+        var remainingTime = GetRemainingCaptureTime(component);
+        
+        if (component.State == CaptureState.Neutral)
+        {
+            args.PushMarkup(Loc.GetString("poi-examine-neutral", ("time", (int) MathF.Round(component.CaptureTime))));
+        }
+        else if (component.State == CaptureState.Owned)
+        {
+            var ownerName = GetFactionDisplayName(component.OwningFaction);
+            args.PushMarkup(Loc.GetString("poi-examine-owned", ("faction", ownerName)));
+        }
+        else if (component.State == CaptureState.Contested_Raising)
+        {
+            var capturerName = GetFactionDisplayName(component.CapturingFaction);
+            args.PushMarkup(Loc.GetString("poi-examine-raising", ("faction", capturerName), ("time", (int) MathF.Round(remainingTime))));
+        }
+        else if (component.State == CaptureState.Contested_Lowering)
+        {
+            var attackerName = GetFactionDisplayName(component.CapturingFaction);
+            args.PushMarkup(Loc.GetString("poi-examine-lowering", ("faction", attackerName), ("time", (int) MathF.Round(remainingTime))));
+        }
+    }
+
+    private float GetRemainingCaptureTime(PointOfInterestComponent poi)
+    {
+        var progress = poi.CaptureProgress;
+        var totalTime = poi.CaptureTime;
+        
+        if (poi.State == CaptureState.Contested_Raising)
+        {
+            return (1.0f - progress) * totalTime;
+        }
+        else if (poi.State == CaptureState.Contested_Lowering)
+        {
+            return progress * totalTime;
+        }
+        
+        return totalTime;
+    }
+
+    private string GetFactionDisplayName(ProtoId<NpcFactionPrototype>? faction)
+    {
+        if (faction == null) return "Неизвестная";
+        
+        return faction.Value.Id switch
+        {
+            "NCR" => "НКР",
+            "BrotherhoodMidwest" => "Братство Стали",
+            "CaesarLegion" => "Легион Цезаря",
+            "Tribal" => "Племя",
+            _ => faction.Value.Id
+        };
     }
 
     private void OnComponentInit(EntityUid uid, PointOfInterestComponent component, ComponentInit args)
@@ -173,6 +231,7 @@ public sealed class PointOfInterestSystem : EntitySystem
             "NCR" => "ncr",
             "BrotherhoodMidwest" => "bos",
             "CaesarLegion" => "legion",
+            "Tribal" => "tribe",
             _ => null
         };
         
@@ -181,6 +240,7 @@ public sealed class PointOfInterestSystem : EntitySystem
             "NCR" => "ncr",
             "BrotherhoodMidwest" => "bos",
             "CaesarLegion" => "legion",
+            "Tribal" => "tribe",
             _ => null
         };
         
@@ -347,7 +407,7 @@ public sealed class PointOfInterestSystem : EntitySystem
             poi.CaptureProgress = 0f;
             poi.State = CaptureState.Contested_Raising; // Now start raising attacker's flag
             
-            _popup.PopupEntity($"The {poi.OwningFaction} flag has been lowered!", uid, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("poi-popup-flag-lowered", ("faction", GetFactionDisplayName(poi.OwningFaction))), uid, PopupType.LargeCaution);
             
             poi.OwningFaction = null;
         }
@@ -372,12 +432,21 @@ public sealed class PointOfInterestSystem : EntitySystem
         poi.CaptureProgress = 1.0f;
         poi.CapturingFaction = null;
 
-        _popup.PopupEntity($"Point of interest captured by {faction}!", uid, PopupType.Large);
+        _popup.PopupEntity(Loc.GetString("poi-popup-captured", ("faction", GetFactionDisplayName(faction))), uid, PopupType.Large);
         
         // Check if this is a key point - play victory sound and announcement
         if (TryComp<KeyPointOfInterestComponent>(uid, out var keyPoint))
         {
             HandleKeyPointCapture(uid, keyPoint, faction);
+        }
+        else
+        {
+            // This is a secondary point - play secondary point sound
+            var secondarySound = GetVictorySoundForFaction(faction, false); // false = secondary point
+            if (secondarySound != null)
+            {
+                _audio.PlayGlobal(secondarySound, Filter.Broadcast(), true);
+            }
         }
     }
     
@@ -402,7 +471,7 @@ public sealed class PointOfInterestSystem : EntitySystem
             {
                 // This is our key point - check metadata or prototypes to determine which faction it was for
                 // For now, we'll infer from remaining points
-                var allFactions = new[] { "NCR", "BrotherhoodMidwest", "CaesarLegion" };
+                var allFactions = new[] { "NCR", "BrotherhoodMidwest", "CaesarLegion", "Tribal" };
                 foreach (var fid in allFactions)
                 {
                     if (fid != capturingFaction.Id)
@@ -431,7 +500,7 @@ public sealed class PointOfInterestSystem : EntitySystem
         }
         
         // Play victory sound for the ATTACKING faction (not the defeated one)
-        var attackerSound = GetVictorySoundForFaction(capturingFaction);
+        var attackerSound = GetVictorySoundForFaction(capturingFaction, true); // true = key point
         if (attackerSound != null)
         {
             _audio.PlayGlobal(attackerSound, Filter.Broadcast(), true);
@@ -457,6 +526,7 @@ public sealed class PointOfInterestSystem : EntitySystem
             "NCR" => "ncr",
             "BrotherhoodMidwest" => "bos",
             "CaesarLegion" => "legion",
+            "Tribal" => "tribe",
             _ => null
         };
         
@@ -465,6 +535,7 @@ public sealed class PointOfInterestSystem : EntitySystem
             "NCR" => "ncr",
             "BrotherhoodMidwest" => "bos",
             "CaesarLegion" => "legion",
+            "Tribal" => "tribe",
             _ => null
         };
         
@@ -474,14 +545,16 @@ public sealed class PointOfInterestSystem : EntitySystem
         return null;
     }
     
-    private SoundSpecifier? GetVictorySoundForFaction(ProtoId<NpcFactionPrototype> faction)
+    private SoundSpecifier? GetVictorySoundForFaction(ProtoId<NpcFactionPrototype> faction, bool isKeyPoint = true)
     {
         // Return the victory sound for the attacking faction
+        var soundType = isKeyPoint ? "Key point" : "Secondary point";
         var soundPath = faction.Id switch
         {
-            "NCR" => "/Audio/_native-fallout/Effects/Victory/victory_ncr.ogg",
-            "BrotherhoodMidwest" => "/Audio/_native-fallout/Effects/Victory/victory_bos.ogg",
-            "CaesarLegion" => "/Audio/_native-fallout/Effects/Victory/victory_legion.ogg",
+            "NCR" => $"/Audio/_native-fallout/Effects/Victory/NCR {soundType}.ogg",
+            "BrotherhoodMidwest" => $"/Audio/_native-fallout/Effects/Victory/BOS {soundType}.ogg",
+            "CaesarLegion" => $"/Audio/_native-fallout/Effects/Victory/Legion {soundType}.ogg",
+            "Tribal" => $"/Audio/_native-fallout/Effects/Victory/Tribe {soundType}.ogg",
             _ => null
         };
         
