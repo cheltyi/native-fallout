@@ -15,9 +15,16 @@ public sealed partial class KeyPointOfInterestComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsLocked = true;
 
-    /// <summary>
-    /// Sound to play when this key point is captured.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? VictorySound;
+   /// <summary>
+   /// Whether this key point has already been captured at least once.
+   /// Used to suppress repeated global victory messages on recaptures.
+   /// </summary>
+   [DataField, AutoNetworkedField]
+   public bool HasBeenCaptured = false;
+
+   /// <summary>
+   /// Sound to play when this key point is captured.
+   /// </summary>
+   [DataField]
+   public SoundSpecifier? VictorySound;
 }

@@ -434,7 +434,7 @@ public sealed class PointOfInterestSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("poi-popup-captured", ("faction", GetFactionDisplayName(faction))), uid, PopupType.Large);
         
-        // Check if this is a key point - play victory sound and announcement
+        // Check if this is a key point - play victory sound and, on first capture, announcement
         if (TryComp<KeyPointOfInterestComponent>(uid, out var keyPoint))
         {
             HandleKeyPointCapture(uid, keyPoint, faction);
@@ -452,6 +452,14 @@ public sealed class PointOfInterestSystem : EntitySystem
     
     private void HandleKeyPointCapture(EntityUid uid, KeyPointOfInterestComponent keyPoint, ProtoId<NpcFactionPrototype> capturingFaction)
     {
+        // Always play the attacker's victory sound when a key point is captured (even on recaptures)
+        var attackerSound = GetVictorySoundForFaction(capturingFaction, true);
+        if (attackerSound != null)
+            _audio.PlayGlobal(attackerSound, Filter.Broadcast(), true);
+
+        // If this key point has already been captured before, suppress global 'destroying faction' announcements
+        if (keyPoint.HasBeenCaptured)
+            return;
         // After first capture, the key point becomes a regular point (unlocked forever)
         keyPoint.IsLocked = false;
         
@@ -499,12 +507,8 @@ public sealed class PointOfInterestSystem : EntitySystem
             }
         }
         
-        // Play victory sound for the ATTACKING faction (not the defeated one)
-        var attackerSound = GetVictorySoundForFaction(capturingFaction, true); // true = key point
-        if (attackerSound != null)
-        {
-            _audio.PlayGlobal(attackerSound, Filter.Broadcast(), true);
-        }
+        // Mark that this key point has had its first capture; subsequent captures won't announce destruction text
+        keyPoint.HasBeenCaptured = true;
         
         // Send victory message with attacker->defender combination
         if (defeatedFaction != null)
