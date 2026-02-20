@@ -191,6 +191,51 @@ public sealed class PointOfInterestSystem : EntitySystem
         }
     }
     
+    private void CheckAndUnlockEnemyKeyPoints(ProtoId<NpcFactionPrototype> attackingFaction, ProtoId<NpcFactionPrototype> defeatedFaction)
+    {
+        // Count how many secondary points the defeated faction still owns
+        int remainingSecondaryPoints = 0;
+        var secondaryQuery = EntityQueryEnumerator<SecondaryPointOfInterestComponent, PointOfInterestComponent>();
+        while (secondaryQuery.MoveNext(out var suid, out var secondary, out var spoi))
+        {
+            if (spoi.OwningFaction == defeatedFaction)
+            {
+                remainingSecondaryPoints++;
+            }
+        }
+        
+        Log.Debug($"POI: Faction {defeatedFaction.Id} has {remainingSecondaryPoints} secondary points remaining after capture by {attackingFaction.Id}");
+        
+        // If the defeated faction has no secondary points left, unlock their key point and send "last flag" announcement
+        if (remainingSecondaryPoints == 0)
+        {
+            var locKey = GetLastFlagLocKey(attackingFaction, defeatedFaction);
+            Log.Debug($"POI: LastFlagLocKey={locKey ?? "null"}");
+            if (locKey != null)
+            {
+                var warningMessage = Loc.GetString(locKey);
+                Log.Debug($"POI: Last flag announcement={warningMessage}");
+                _chat.DispatchGlobalAnnouncement(warningMessage, colorOverride: Color.Red);
+            }
+            else
+            {
+                Log.Warning($"POI: Could not generate last flag loc key for {attackingFaction.Id} -> {defeatedFaction.Id}");
+            }
+            
+            // Unlock all key points of the defeated faction
+            var keyQuery = EntityQueryEnumerator<KeyPointOfInterestComponent, PointOfInterestComponent>();
+            while (keyQuery.MoveNext(out var keyUid, out var keyPoint, out var keyPoi))
+            {
+                if (keyPoi.OwningFaction == defeatedFaction && keyPoint.IsLocked)
+                {
+                    keyPoint.IsLocked = false;
+                    Dirty(keyUid, keyPoint);
+                    Log.Debug($"POI: Unlocked key point {keyUid} of faction {defeatedFaction.Id}");
+                }
+            }
+        }
+    }
+
     private void UnlockKeyPoint(EntityUid uid, KeyPointOfInterestComponent keyPoint, PointOfInterestComponent poi, ProtoId<NpcFactionPrototype> defeatedFaction)
     {
         keyPoint.IsLocked = false;
@@ -436,25 +481,35 @@ public sealed class PointOfInterestSystem : EntitySystem
         // Use OriginalOwner (saved when attack started) for announcements, not current owner
         var defeatedFaction = poi.OriginalOwner;
 
+        Log.Debug($"POI: CompleteFlagRaise for {uid}. Capturing faction={faction.Id}, OriginalOwner={defeatedFaction?.Id ?? "null"}, CurrentOwner before overwrite={poi.OwningFaction?.Id ?? "null"}");
+
         poi.OwningFaction = faction;
         poi.State = CaptureState.Owned;
         poi.CaptureProgress = 1.0f;
         poi.CapturingFaction = null;
 
-        _popup.PopupEntity(Loc.GetString("poi-popup-captured", ("faction", GetFactionDisplayName(faction))), uid, PopupType.Large);
+        var capturerName = GetFactionDisplayName(faction);
+        Log.Debug($"POI: Popup will show: '{capturerName}' captured the point");
+        _popup.PopupEntity(Loc.GetString("poi-popup-captured", ("faction", capturerName)), uid, PopupType.Large);
         
         // Check if this is a key point - play victory sound and, on first capture, announcement
         if (TryComp<KeyPointOfInterestComponent>(uid, out var keyPoint))
         {
             HandleKeyPointCapture(uid, keyPoint, faction, defeatedFaction);
         }
-        else
+        else if (TryComp<SecondaryPointOfInterestComponent>(uid, out var secondaryPoint))
         {
-            // This is a secondary point - play secondary point sound
+            // This is a secondary point - play secondary point sound and check if this unlocks enemy key points
             var secondarySound = GetVictorySoundForFaction(faction, false); // false = secondary point
             if (secondarySound != null)
             {
                 _audio.PlayGlobal(secondarySound, Filter.Broadcast(), true);
+            }
+            
+            // Check if capturing this secondary point unlocks enemy key points (i.e., this was the last secondary point of defeatedFaction)
+            if (defeatedFaction != null)
+            {
+                CheckAndUnlockEnemyKeyPoints(faction, defeatedFaction.Value);
             }
         }
 
