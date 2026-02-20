@@ -31,6 +31,13 @@ public sealed partial class PointOfInterestComponent : Component
     public ProtoId<NpcFactionPrototype>? OwningFaction;
 
     /// <summary>
+    /// The original owner of this point when it was first attacked.
+    /// Used for victory announcements to correctly identify the defeated faction.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<NpcFactionPrototype>? OriginalOwner;
+
+    /// <summary>
     /// Current capture progress (0.0 to 1.0).
     /// When lowering enemy flag: 1.0 -> 0.0
     /// When raising own flag: 0.0 -> 1.0

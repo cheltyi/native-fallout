@@ -395,6 +395,12 @@ public sealed class PointOfInterestSystem : EntitySystem
 
     private void HandleFlagLowering(EntityUid uid, PointOfInterestComponent poi, ProtoId<NpcFactionPrototype> attackingFaction, float deltaTime)
     {
+        // Save the original owner when lowering begins (only if not already saved)
+        if (poi.State != CaptureState.Contested_Lowering && poi.OriginalOwner == null)
+        {
+            poi.OriginalOwner = poi.OwningFaction;
+        }
+
         poi.State = CaptureState.Contested_Lowering;
         poi.CapturingFaction = attackingFaction;
 
@@ -427,6 +433,9 @@ public sealed class PointOfInterestSystem : EntitySystem
 
     private void CompleteFlagRaise(EntityUid uid, PointOfInterestComponent poi, ProtoId<NpcFactionPrototype> faction)
     {
+        // Use OriginalOwner (saved when attack started) for announcements, not current owner
+        var defeatedFaction = poi.OriginalOwner;
+
         poi.OwningFaction = faction;
         poi.State = CaptureState.Owned;
         poi.CaptureProgress = 1.0f;
@@ -437,7 +446,7 @@ public sealed class PointOfInterestSystem : EntitySystem
         // Check if this is a key point - play victory sound and, on first capture, announcement
         if (TryComp<KeyPointOfInterestComponent>(uid, out var keyPoint))
         {
-            HandleKeyPointCapture(uid, keyPoint, faction);
+            HandleKeyPointCapture(uid, keyPoint, faction, defeatedFaction);
         }
         else
         {
@@ -448,9 +457,12 @@ public sealed class PointOfInterestSystem : EntitySystem
                 _audio.PlayGlobal(secondarySound, Filter.Broadcast(), true);
             }
         }
+
+        // Clear OriginalOwner after capture is complete
+        poi.OriginalOwner = null;
     }
     
-    private void HandleKeyPointCapture(EntityUid uid, KeyPointOfInterestComponent keyPoint, ProtoId<NpcFactionPrototype> capturingFaction)
+    private void HandleKeyPointCapture(EntityUid uid, KeyPointOfInterestComponent keyPoint, ProtoId<NpcFactionPrototype> capturingFaction, ProtoId<NpcFactionPrototype>? previousOwner)
     {
         // Always play the attacker's victory sound when a key point is captured (even on recaptures)
         var attackerSound = GetVictorySoundForFaction(capturingFaction, true);
@@ -459,67 +471,43 @@ public sealed class PointOfInterestSystem : EntitySystem
 
         // If this key point has already been captured before, suppress global 'destroying faction' announcements
         if (keyPoint.HasBeenCaptured)
+        {
+            Log.Debug($"POI: Key point {uid} already captured, skipping announcement.");
             return;
+        }
+        
+        Log.Debug($"POI: Key point {uid} first capture. Attacker={capturingFaction.Id}, PrevOwner={previousOwner?.Id ?? "null"}");
         // After first capture, the key point becomes a regular point (unlocked forever)
         keyPoint.IsLocked = false;
         
-        // Get the component to see who previously owned this point
-        if (!TryComp<PointOfInterestComponent>(uid, out var poi))
-            return;
+        // Determine defeated faction based on immediate previous owner of THIS key point
+        // If previousOwner is null (e.g., first time neutral -> owned), then there is no defeated faction for global text
+        ProtoId<NpcFactionPrototype>? defeatedFaction = previousOwner;
         
-        // The defender is the one who just lost the key point (previous owner from before this capture started)
-        // We need to track this - for now, we'll determine it from the key point entity itself
-        ProtoId<NpcFactionPrototype>? defeatedFaction = null;
-        
-        // Check all key points to find which faction this key point belongs to
-        var keyQuery = EntityQueryEnumerator<KeyPointOfInterestComponent, PointOfInterestComponent>();
-        while (keyQuery.MoveNext(out var kuid, out var kp, out var kpoi))
-        {
-            if (kuid == uid)
-            {
-                // This is our key point - check metadata or prototypes to determine which faction it was for
-                // For now, we'll infer from remaining points
-                var allFactions = new[] { "NCR", "BrotherhoodMidwest", "CaesarLegion", "Tribal" };
-                foreach (var fid in allFactions)
-                {
-                    if (fid != capturingFaction.Id)
-                    {
-                        // Check if this faction has any points left
-                        var hasPoints = false;
-                        var checkQuery = EntityQueryEnumerator<PointOfInterestComponent>();
-                        while (checkQuery.MoveNext(out var cuid, out var cpoi))
-                        {
-                            if (cpoi.OwningFaction?.Id == fid && cuid != uid)
-                            {
-                                hasPoints = true;
-                                break;
-                            }
-                        }
-                        
-                        if (!hasPoints)
-                        {
-                            defeatedFaction = new ProtoId<NpcFactionPrototype>(fid);
-                            break;
-                        }
-                    }
-                }
-                break;
-            }
-        }
-        
-        // Mark that this key point has had its first capture; subsequent captures won't announce destruction text
-        keyPoint.HasBeenCaptured = true;
-        
-        // Send victory message with attacker->defender combination
+        // Send victory message with attacker->defender combination (only on first-ever capture of this base)
         if (defeatedFaction != null)
         {
             var locKey = GetVictoryLocKey(capturingFaction, defeatedFaction.Value);
+            Log.Debug($"POI: VictoryLocKey={locKey ?? "null"}");
             if (locKey != null)
             {
                 var message = Loc.GetString(locKey);
+                Log.Debug($"POI: Announcement message={message}");
                 _chat.DispatchGlobalAnnouncement(message, colorOverride: Color.Red);
             }
+            else
+            {
+                Log.Warning($"POI: Could not generate victory loc key for {capturingFaction.Id} -> {defeatedFaction.Value.Id}");
+            }
         }
+        else
+        {
+            Log.Debug("POI: No defeatedFaction, skipping announcement.");
+        }
+
+        // Only after music and (potential) announcement mark this base as 'has been captured'
+        keyPoint.HasBeenCaptured = true;
+        Dirty(uid, keyPoint);
     }
     
     private string? GetVictoryLocKey(ProtoId<NpcFactionPrototype> attacker, ProtoId<NpcFactionPrototype> defender)
